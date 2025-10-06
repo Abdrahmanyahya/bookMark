@@ -5,6 +5,8 @@ let sites = JSON.parse(localStorage.getItem("site") || "[]");
 const removeAll = document.querySelector(".btnremve");
 const searchinput = document.querySelector(".search");
 const TextDanger = document.querySelectorAll(".text-danger");
+const emaildanger = document.querySelectorAll(".email-danger");
+const passworddanger = document.querySelectorAll(".password-danger");
 const Addbtn = document.querySelector(".Addbtn");
 const updatebtn = document.querySelector(".updatebtn");
 const vlidateName =()=>{
@@ -16,6 +18,8 @@ if(regex.test(input[0].value)){
   input[0].classList.remove("is-invalid");
   input[0].classList.add("is-valid");
     TextDanger[0].textContent = "";
+    TextDanger[1].textContent = "";
+        TextDanger[2].textContent = "";
 
   return true;
 
@@ -24,6 +28,10 @@ else{
   input[0].classList.remove("is-valid");
   input[0].classList.add("is-invalid");
     TextDanger[0].textContent = "invalid Name please try again";
+    TextDanger[1].textContent = "1- Must Enter First One Capital Latter Then,";
+        TextDanger[2].textContent = "2- Must Enter At Least Tow Or More Small Latter";
+
+
 
   return false;
 }
@@ -35,14 +43,18 @@ const regexpassword = /^[0-9]{5,}$/;
 if(regexpassword.test(input[3].value)){
   input[3].classList.remove("is-invalid");
   input[3].classList.add("is-valid");
-      TextDanger[3].textContent = "";
+      passworddanger[0].textContent = "";
+            passworddanger[1].textContent = "";
+
 
   return true;
 }
   else{
     input[3].classList.remove("is-valid");
     input[3].classList.add("is-invalid"); 
-        TextDanger[3].textContent = "invalid Passwored please try again";
+      passworddanger[0].textContent = "invalid Passwored please try again";
+            passworddanger[1].textContent = "** You Must Enter At Least 5 Number From[0-9]";
+
 
     return false;
    }
@@ -57,14 +69,20 @@ const EmailValidation = ()=>{
   if(regexemail.test(input[2].value)){
     input[2].classList.remove("is-invalid");
     input[2].classList.add("is-valid");
-          TextDanger[2].textContent = "";
+          emaildanger[0].textContent = "";
+                    emaildanger[1].textContent = "";
+          emaildanger[2].textContent = "";
+
 
     return true;
   }
   else{
    input[2].classList.remove("is-valid");
    input[2].classList.add("is-invalid");
-           TextDanger[2].textContent = "invalid email please try again";
+           emaildanger[0].textContent = "invalid email please try again";
+            emaildanger[1].textContent = "1- You Must Enter First At Least three small Character Then,";
+            emaildanger[2].textContent = "2- Enter @gmail.com";
+
 
    return false;
 
